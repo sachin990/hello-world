@@ -45,3 +45,16 @@ resource "aws_route_table" "routPUB" {
       Name="mypubrt"
  }
 }
+
+resource "aws_route_table_association" "mysubnet_route" {
+  subnet_id      = aws_subnet.publicsubnet.id
+  route_table_id = aws_route_table.mypublicrt.id
+  depends_on=[aws_subnet.publicsubnet,aws_route_table.mypublicrt]
+}
+
+resource "aws_eip" "myeip" {
+	  tags={
+		Name="MyEip"
+	}
+}
+
