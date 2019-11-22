@@ -45,3 +45,5 @@ resource "aws_route_table" "routPUB" {
       Name="mypubrt"
  }
 }
+
+resource "aws_route_table_association" "a" {
